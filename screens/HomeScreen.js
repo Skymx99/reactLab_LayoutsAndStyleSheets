@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
+import ProjectCard from '../components/ProjectCard';
 
 
 export default class HomeScreen extends Component {
@@ -12,18 +13,18 @@ export default class HomeScreen extends Component {
     componentDidMount() {
         this.setState({
             projects: [
-                { name: 'Test Project 1', description: 'Cool Project!'},
-                { name: 'Test Project 2', description: 'Cool Project!'},
-                { name: 'Test Project 3', description: 'Cool Project!'},
-                { name: 'Test Project 4', description: 'Cool Project!'},
+                { name: 'Test Project 1', description: 'Cool Project!' },
+                { name: 'Test Project 2', description: 'Cool Project!' },
+                { name: 'Test Project 3', description: 'Cool Project!' },
+                { name: 'Test Project 4', description: 'Cool Project!' },
             ]
         });
     }
     render() {
-        return(
+        return (
             <ScrollView style={styles.container}>
-                { this.state.projects.map((project, index) => {
-                    return <Text key={index}>{project.name}</Text>
+                {this.state.projects.map((project, index) => {
+                    return <ProjectCard key={index} project={project} />
                 })}
             </ScrollView>
         );
